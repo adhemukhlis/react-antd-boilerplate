@@ -1,10 +1,7 @@
 import React from 'react';
 import { Layout, Button } from 'antd';
 import { DisplayDate, distinctArray } from '../../utility/utility';
-import { PageTitle } from '../../components/PageTitle';
-import { TableComponent } from '../../components/TableComponent';
-import { TablePanel } from '../../components/TablePanel';
-import { ButtonEditDelete } from '../../components/ButtonEditDelete';
+import { TableComponent,PageTitle,TablePanel,ButtonEditDelete } from '../../components';
 import { style_content } from '../../style';
 import { PlusOutlined, SettingOutlined } from '@ant-design/icons';
 

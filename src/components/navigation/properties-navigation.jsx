@@ -13,6 +13,9 @@ export const menu_properties = [
 			{
 				path: '/login',
 				title: 'Login'
+			},{
+				path: '/form',
+				title: 'Form'
 			}
 		]
 	}
