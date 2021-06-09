@@ -61,7 +61,6 @@ echarts.registerTheme('dark', {
 			color: '#817f91'
 		},
 		label: {
-			// TODO Contrast of label backgorundColor
 			color: '#fff'
 		}
 	},
@@ -188,109 +187,86 @@ echarts.registerTheme('dark', {
 	}
 });
 const ViewChartNetwork = ( ) => {
-	// const options = {
-	// 	tooltip: {},
-	// 	legend: [
-	// 		{
-	// 			data: ChartData
-	// 				.categories
-	// 				.map( function ( a ) {
-	// 					return a.name;
-	// 				})
-	// 		}
-	// 	],
-	// 	series: [
-	// 		{
-	// 			name: 'Les Miserables',
-	// 			type: 'graph',
-	// 			layout: 'none',
-	// 			data: ChartData.nodes,
-	// 			links: ChartData.links,
-	// 			categories: ChartData.categories,
-	// 			roam: true,
-	// 			label: {
-	// 				show: true,
-	// 				position: 'right',
-	// 				formatter: '{b}'
-	// 			},
-	// 			labelLayout: {
-	// 				hideOverlap: true
-	// 			},
-	// 			scaleLimit: {
-	// 				min: 0.4,
-	// 				max: 2
-	// 			},
-	// 			lineStyle: {
-	// 				color: 'source',
-	// 				curveness: 0.3
-	// 			}
-	// 		}
-	// 	]
-	// };
-    const ChartDataOpt2Nodes = ChartData.nodes.map(({symbolSize,...node})=>({
-        ...node,
-        itemStyle : null,
-        value : symbolSize,
-        symbolSize : symbolSize/1.5,
-        label : {
-            show: symbolSize > 30
-        },
-    }))
-    const options2  = {
-        title: {
-            text: 'Les Miserables',
-            subtext: 'Default layout',
-            top: 'bottom',
-            left: 'right'
-        },
-        tooltip: {},
-        legend: [{
-            // selectedMode: 'single',
-            data: ChartData.categories.map(function (a) {
-                return a.name;
-            })
-        }],
-        animationDuration: 1500,
-        animationEasingUpdate: 'quinticInOut',
-        series : [
-            {
-                name: 'Les Miserables',
-                type: 'graph',
-                layout: 'none',
-                data: ChartDataOpt2Nodes,
-                links: ChartData.links,
-                categories: ChartData.categories,
-                roam: true,
-                focusNodeAdjacency: true,
-                itemStyle: {
-                    borderColor: '#fff',
-                    borderWidth: 1,
-                    shadowBlur: 10,
-                    shadowColor: 'rgba(0, 0, 0, 0.3)'
-                },
-                label: {
-                    position: 'right',
-                    formatter: '{b}'
-                },
-                lineStyle: {
-                    color: 'source',
-                    curveness: 0.3
-                },
-                emphasis: {
-                    lineStyle: {
-                        width: 10
-                    }
-                }
-            }
-        ]
-    };
+	// const options = { 	tooltip: {}, 	legend: [ 		{ 			data: ChartData
+	// 				.categories 				.map( function ( a ) { 					return a.name; 				}) 		} 	],
+	// 	series: [ 		{ 			name: 'Les Miserables', 			type: 'graph', 			layout:
+	// 'none', 			data: ChartData.nodes, 			links: ChartData.links, 			categories:
+	// ChartData.categories, 			roam: true, 			label: { 				show: true,
+	// 				position: 'right', 				formatter: '{b}' 			}, 			labelLayout: {
+	// 				hideOverlap: true 			}, 			scaleLimit: { 				min: 0.4, 				max: 2 			},
+	// 			lineStyle: { 				color: 'source', 				curveness: 0.3 			} 		} 	] };
+	const ChartDataOpt2Nodes = ChartData
+		.nodes
+		.map(({
+			symbolSize,
+			...node
+		}) => ({
+			...node,
+			itemStyle: null,
+			value: symbolSize,
+			symbolSize: symbolSize / 1.5,
+			label: {
+				show: symbolSize > 30
+			}
+		}));
+	const options2 = {
+		title: {
+			text: 'Les Miserables',
+			subtext: 'Default layout',
+			top: 'bottom',
+			left: 'right'
+		},
+		tooltip: {},
+		legend: [
+			{
+				data: ChartData
+					.categories
+					.map( function ( a ) {
+						return a.name;
+					})
+			}
+		],
+		animationDuration: 1500,
+		animationEasingUpdate: 'quinticInOut',
+		series: [
+			{
+				name: 'Network Graph',
+				type: 'graph',
+				layout: 'none',
+				data: ChartDataOpt2Nodes,
+				links: ChartData.links,
+				categories: ChartData.categories,
+				roam: true,
+				focusNodeAdjacency: true,
+				itemStyle: {
+					borderColor: '#fff',
+					borderWidth: 1,
+					shadowBlur: 10,
+					shadowColor: 'rgba(0, 0, 0, 0.3)'
+				},
+				label: {
+					position: 'right',
+					formatter: '{b}'
+				},
+				lineStyle: {
+					color: 'source',
+					curveness: 0.3
+				},
+				emphasis: {
+					lineStyle: {
+						width: 10
+					}
+				}
+			}
+		]
+	};
 	return (
 		<div style={{
 			display: 'flex',
 			flex: 1,
 			flexDirection: 'column'
 		}}>
-			<PageTitle>Dashboard</PageTitle>
+			<PageTitle>Network Graph</PageTitle>
 			<Content style={style_content}><ReactECharts
 				option={options2}
 				style={{

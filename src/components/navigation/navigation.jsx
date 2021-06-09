@@ -7,7 +7,8 @@ import {
 	Popover,
 	Badge,
 	Typography,
-	Divider
+	Divider,
+	notification
 } from 'antd';
 import { menu_properties } from './properties-navigation';
 import { withRouter } from "react-router-dom";
@@ -59,6 +60,7 @@ class Navigation extends Component {
 	render( ) {
 		const { collapsed } = this.state;
 		const { children } = this.props;
+	
 		return (
 			<Layout style={style_full_height}>
 				<SideBar
@@ -73,7 +75,13 @@ class Navigation extends Component {
 		);
 	}
 }
-
+const openNotificationWithIcon = type => {
+	notification[type]({
+	  message: 'Notification Title',
+	  description:
+		'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+	});
+  };
 const TopBar = memo(({ nama, profile_url }) => (
 	<Header style={style_header_container}>
 		<div style={style_menu_wrapper}>
@@ -101,7 +109,7 @@ const TopBar = memo(({ nama, profile_url }) => (
 				<div className="noselect">Notification</div>
 			)}
 				content={(
-				<div className="noselect">content..</div>
+				<div className="noselect"><Button onClick={() => openNotificationWithIcon('info')}>notification +</Button></div>
 			)}
 				trigger="click">
 				<Badge count={100} className="noselect">

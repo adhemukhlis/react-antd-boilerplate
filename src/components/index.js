@@ -9,6 +9,7 @@ export * from './TablePanel';
 export * from './TabMenu';
 export * from './FloatPanel';
 export * from './SelectApi';
+export * from './CascadeWilayahApi';
 // export * from './ConditionalComponent';
 // export * from './UploadImage';
 export * from './ButtonAcceptReject';

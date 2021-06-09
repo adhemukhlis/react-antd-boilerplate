@@ -16,6 +16,9 @@ export const menu_properties = [
 			},{
 				path: '/form',
 				title: 'Form'
+			},{
+				path: '/charts/network',
+				title: 'Network Graph'
 			}
 		]
 	}
